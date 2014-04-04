@@ -1,0 +1,16 @@
+{% load staticfiles %}
+<head>
+<link rel="stylesheet" type="text/css" href="{% static "TaskMan/login.css" %}" >
+</head>
+<section class="login">
+	<div class="titulo">Staff Login</div>
+	<form action="#" method="post" enctype="application/x-www-form-urlencoded">
+    	<input type="text" id="username" required title="Username required" placeholder="Username" data-icon="U">
+        <input type="password" id="password" required title="Password required" placeholder="Password" data-icon="x">
+        <div class="olvido">
+        	<div class="col"><a href="/register.html" title="Ver Carásteres">Register</a></div>
+            <!--<div class="col"><a href="#" title="Recuperar Password">Forgot Password?</a></div>-->
+        </div>
+        <a href="#" class="enviar">Submit</a>
+    </form>
+</section>
