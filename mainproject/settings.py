@@ -36,7 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'email_login',
+    'TaskMan',
+    #'demo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -77,6 +78,10 @@ USE_L10N = True
 
 USE_TZ = True
 
+TEMPLATE_CONTEXT_PROCESSORS = ("django.contrib.auth.context_processors.auth",
+                               
+)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
@@ -87,7 +92,8 @@ MEDIA_ROOT = os.path.join(PROJECT_DIR, "site_media")
 
 TEMPLATE_DIRS = (
     os.path.join(PROJECT_DIR,"templates"),
-    os.path.join(os.path.dirname(PROJECT_DIR),os.path.join('TaskMan',"templates"))    
+    os.path.join(os.path.dirname(PROJECT_DIR),os.path.join('TaskMan',"templates")),
+    os.path.join(os.path.dirname(PROJECT_DIR),os.path.join('demo',"templates"))    
 )
 
 STATICFILES_FINDERS=("django.contrib.staticfiles.finders.FileSystemFinder",

@@ -1,0 +1,17 @@
+{% load staticfiles %}
+<head>
+	{{ form.media }} 
+<!--<link rel="stylesheet" type="text/css" href="{% static "TaskMan/login.css" %}" >-->
+</head>
+<!--<section class="login">
+	<div class="titulo">Staff Login</div>-->
+	<form action="/showtask" method="post" > {% csrf_token %}
+	{{ form.as_p }}
+
+
+</select>
+	</div>
+        <input type="Submit" name="add_task"/>
+        <!--<a href="" class="enviar">Submit</a>-->
+    </form>
+</section>

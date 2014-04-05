@@ -1,0 +1,56 @@
+
+<head>
+
+</head>
+<body bgcolor="#C8C8C8">
+<div><font color:white> Welcome {{user}} </font color> </h1>
+<a align="right" href="/logout" >Logout</a>	</div>
+<br><br><br>
+
+<section class="login">
+	
+	<form action="/showtask/" method="post" > {% csrf_token %}
+		
+			{% if task_list %}
+			
+			<span> Status: <select name="status" value="Hello">
+
+					<option value="Incompleted">Incomplete</option>
+					<option value="Finished">Finished</option>
+					</select></span><br><br>
+					
+			<table border="1" bgcolor="#FFFF66">
+			<tr>
+				<td></td>
+				<td>ID</td>
+				<td>Title</td>
+				<td>Added on</td>
+				<td>Complete By</td>
+				<td>Status</td>
+			</tr>
+			{% for tasks in task_list %}
+
+			<tr>
+				<td><input type="checkbox" name="checkbox" value={{tasks.taskid }}></td>
+				<td> {{tasks.taskid }}</td>
+				<td>{{tasks.description }}</td>
+				<td> {{tasks.tasktime }}</td>
+				<td>{{tasks.deadline}}</td>
+				<td> {{tasks.status}} </td>
+				
+				</tr>
+		{% endfor %}
+			</table>
+		{% endif %}
+		<br><br>
+
+         <input type="Submit" name="delete" value="Delete Task"/>
+         <input type="Submit" name="add" value="Add Task" />
+         <input type="Submit" name="sort_added" value="Sort By Added Date" />
+         <input type="Submit" name="sort_deadline" value="Sort by Deadline" />
+		 <input type="Submit" name="update" value="Update Status" />         
+    
+    </form>
+</section>
+
+</body>
