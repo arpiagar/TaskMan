@@ -14,18 +14,22 @@ class User(models.Model):
         return self.username
 
 
-"""class ConvertingDateTimeFeild(models.DateTimeField):
-
-    def get_prep_value(self, value):
-        return str(datetime.strftime(value, "%d %b,%Y"))"""
 
 class Task(models.Model):
 	taskid=models.AutoField(primary_key=True)
 	username=models.CharField(max_length=100)
-	#tasktime=models.DateTimeField(default= time.strftime('%d %b,%Y'))
 	tasktime=models.DateTimeField(default=datetime.datetime.now())
 	description=models.CharField(max_length=300)
 	deadline=models.DateTimeField(help_text="Please use the following format: <em>YYYY-MM-DD</em>.")
 	status=models.CharField(max_length=10,default="Incompleted")
+	
+
+class Action(models.Model):
+	actionid=models.AutoField(primary_key=True)
+	actiontime=models.DateTimeField(default=datetime.datetime.now())
+	actiontype=models.CharField(max_length=10)
+	actionuser=models.CharField(max_length=100)
+	actiondescription=models.CharField(max_length=150)
+
 
 

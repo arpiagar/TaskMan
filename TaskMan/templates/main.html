@@ -1,10 +1,12 @@
-
+{% load staticfiles %}
 <head>
-
+<link rel="stylesheet" type="text/css" href="{% static "TaskMan/style.css" %}" >
+<link rel="stylesheet" type="text/css" href="{% static "TaskMan/grid.css" %}" >
+<!--<link rel="stylesheet" type="text/css" href="{% static "TaskMan/reset.css" %}" >-->
 </head>
 <body bgcolor="#C8C8C8">
 <div><font color:white> Welcome {{user}} </font color> </h1>
-<a align="right" href="/logout" >Logout</a>	</div>
+<a align="right" href="/logout" ><font color="0000CC">Logout</font></a>	</div>
 <br><br><br>
 
 <section class="login">
@@ -19,7 +21,7 @@
 					<option value="Finished">Finished</option>
 					</select></span><br><br>
 					
-			<table border="1" bgcolor="#FFFF66">
+			<table border="1" bgcolor="#000000">
 			<tr>
 				<td></td>
 				<td>ID</td>
@@ -42,7 +44,20 @@
 		{% endfor %}
 			</table>
 		{% endif %}
+
 		<br><br>
+{% if action_list %}
+		<div style="lign:right;width:350px;height:150px;line-height:3em;overflow:scroll;padding:5px;" border="1">
+			<ul>
+	{% for actions in action_list %}
+
+		
+<li> {{ actions.actiondescription}} </li>
+
+	{% endfor %}
+</ul>
+</div>
+{% endif %}
 
          <input type="Submit" name="delete" value="Delete Task"/>
          <input type="Submit" name="add" value="Add Task" />
