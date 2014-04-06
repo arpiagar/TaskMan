@@ -38,15 +38,15 @@ def addtasktoDB(request):
 
 
 def sortByDeadline(request):
-	task_list=Task.objects.order_by('deadline')
 	username=request.session['username']
+	task_list=Task.objects.order_by('deadline').filter(username=username)
 	task_list=formatTasksTime(task_list)
 	action_list=getActionList(username)
 	return {'user':username,'task_list':task_list,'action_list':action_list}
 
 def sortByAddDate(request):
-	task_list=Task.objects.order_by('tasktime')
 	username=request.session['username']
+	task_list=Task.objects.order_by('tasktime').filter(username=username)
 	task_list=formatTasksTime(task_list)
 	action_list=getActionList(username)
 	return {'user':username,'task_list':task_list,'action_list':action_list}
